@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scrivimi - Dario Bassani</title>
+  <meta name="description" content="A disposizione: scrivimi per un progetto, un'intervista o una collaborazione.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Scrivimi - Dario Bassani">
+  <meta property="og:description" content="A disposizione: scrivimi per un progetto, un'intervista o una collaborazione.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dariobassani.it/contatti.html">
+  <meta property="og:image" content="https://dariobassani.it/images/foto-autore.jpg">
+  <meta property="og:locale" content="it_IT">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="images/favicon.ico">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Vai al contenuto</a>
+
+  <header>
+    <nav class="has-title" aria-label="Navigazione principale">
+      <a href="index.html" class="site-title">Dario Bassani</a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Apri menu">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+      <ul class="nav-links" id="nav-menu">
+        <li><a href="chi-sono.html">Chi sono</a></li>
+        <li><a href="libro.html">Il libro</a></li>
+        <li><a href="pubblicazioni.html">Che cosa ho fatto</a></li>
+        <li><a href="contatti.html" class="active" aria-current="page">Scrivimi</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section class="contact-section animate-on-scroll" aria-label="Contatti">
+      <h1>Scrivimi</h1>
+      <p>A disposizione:</p>
+
+      <ul class="contact-list" role="list">
+        <li>
+          <span class="contact-label">Email</span>
+          <a href="mailto:dariobassani95@gmail.com">dariobassani95@gmail.com</a>
+        </li>
+        <li>
+          <span class="contact-label">Instagram</span>
+          <a href="https://instagram.com/dariobassani_" target="_blank" rel="noopener">@dariobassani_</a>
+        </li>
+        <li>
+          <span class="contact-label">Newsletter</span>
+          <a href="https://treguanewsletter.substack.com" target="_blank" rel="noopener">Tregua su Substack</a>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Dario Bassani</p>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const menu = document.getElementById('nav-menu');
+    if (toggle && menu) {
+      toggle.addEventListener('click', () => {
+        const expanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', !expanded);
+        menu.classList.toggle('nav-links--open');
+        document.body.classList.toggle('nav-open');
+      });
+      menu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          toggle.setAttribute('aria-expanded', 'false');
+          menu.classList.remove('nav-links--open');
+          document.body.classList.remove('nav-open');
+        });
+      });
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

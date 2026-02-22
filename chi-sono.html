@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chi sono - Dario Bassani</title>
+  <meta name="description" content="Sono Dario Bassani: scrivo, leggo e sto su internet per mestiere. Responsabile editoriale di Lucy sui mondi, curatore di Tregua, autore di Giocare alla guerra (nottetempo, 2026).">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Chi sono - Dario Bassani">
+  <meta property="og:description" content="Scrivo, leggo e sto su internet per mestiere. Responsabile editoriale di Lucy sui mondi, curatore di Tregua, autore di Giocare alla guerra (nottetempo, 2026).">
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://dariobassani.it/chi-sono.html">
+  <meta property="og:image" content="https://dariobassani.it/images/foto-autore.jpg">
+  <meta property="og:locale" content="it_IT">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="images/favicon.ico">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Dario Bassani",
+    "url": "https://dariobassani.it",
+    "jobTitle": "Responsabile editoriale",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Lucy sui mondi",
+      "url": "https://lucysuimondi.com"
+    },
+    "sameAs": [
+      "https://instagram.com/dariobassani_",
+      "https://treguanewsletter.substack.com"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Vai al contenuto</a>
+
+  <header>
+    <nav class="has-title" aria-label="Navigazione principale">
+      <a href="index.html" class="site-title">Dario Bassani</a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Apri menu">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+      <ul class="nav-links" id="nav-menu">
+        <li><a href="chi-sono.html" class="active" aria-current="page">Chi sono</a></li>
+        <li><a href="libro.html">Il libro</a></li>
+        <li><a href="pubblicazioni.html">Che cosa ho fatto</a></li>
+        <li><a href="contatti.html">Scrivimi</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section class="about-section animate-on-scroll" aria-label="Biografia">
+      <img src="images/foto-autore.jpg" alt="Ritratto di Dario Bassani, foto di Eunice Brovida" class="about-photo" width="200">
+      <div class="about-text">
+        <h1>Chi sono</h1>
+        <p>Sono Dario Bassani, classe 1995. Faccio il responsabile editoriale di <a href="https://lucysuimondi.com" target="_blank" rel="noopener">Lucy sui mondi</a>.</p>
+        <p>Ho scritto per cheFare, NOT, il Tascabile, l'Indice dei Libri del Mese. Su Substack curo <a href="https://treguanewsletter.substack.com" target="_blank" rel="noopener">Tregua</a>, una newsletter indipendente sui mondi che la guerra produce.</p>
+        <p>Il mio primo libro, <em>Giocare alla guerra</em>, esce per nottetempo a maggio 2026. Racconta il legame tra videogiochi e cultura militare, dalla Guerra Fredda ai droni.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Dario Bassani</p>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const menu = document.getElementById('nav-menu');
+    if (toggle && menu) {
+      toggle.addEventListener('click', () => {
+        const expanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', !expanded);
+        menu.classList.toggle('nav-links--open');
+        document.body.classList.toggle('nav-open');
+      });
+      menu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          toggle.setAttribute('aria-expanded', 'false');
+          menu.classList.remove('nav-links--open');
+          document.body.classList.remove('nav-open');
+        });
+      });
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
