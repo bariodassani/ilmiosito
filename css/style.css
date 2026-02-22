@@ -771,11 +771,6 @@ footer p:last-child {
     padding: 3.5rem 1.5rem;
   }
 
-  /* Homepage: hamburger a sinistra */
-  .home-page nav {
-    justify-content: flex-start;
-  }
-
   .band__split {
     grid-template-columns: 1fr;
     gap: 2rem;
