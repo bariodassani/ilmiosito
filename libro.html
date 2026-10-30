@@ -86,15 +86,10 @@
   <header>
     <nav class="has-title" aria-label="Navigazione principale">
       <a href="index.html" class="site-title">Dario Bassani</a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Apri menu">
-        <span class="nav-toggle__bar"></span>
-        <span class="nav-toggle__bar"></span>
-        <span class="nav-toggle__bar"></span>
-      </button>
       <ul class="nav-links" id="nav-menu">
         <li><a href="chi-sono.html">Chi sono</a></li>
         <li><a href="libro.html" class="active" aria-current="page">Il libro</a></li>
-        <li><a href="pubblicazioni.html">Che cosa ho pubblicato</a></li>
+        <li><a href="pubblicazioni.html"><span class="label-full">Che cosa ho pubblicato</span><span class="label-short">Pubblicazioni</span></a></li>
         <li><a href="contatti.html">Scrivimi</a></li>
       </ul>
     </nav>
@@ -121,27 +116,19 @@
   </main>
 
   <footer>
-    <p>&copy; 2026 Dario Bassani</p>
+    <div class="footer__inner">
+      <ul class="footer__links">
+        <li><a href="mailto:dariobassani95@gmail.com">dariobassani95@gmail.com</a></li>
+        <li><a href="https://instagram.com/dariobassani_" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://treguanewsletter.substack.com" target="_blank" rel="noopener">Tregua</a></li>
+      </ul>
+      <div class="footer__text">
+        <p>&copy; 2026 Dario Bassani</p>
+      </div>
+    </div>
   </footer>
 
   <script>
-    const toggle = document.querySelector('.nav-toggle');
-    const menu = document.getElementById('nav-menu');
-    if (toggle && menu) {
-      toggle.addEventListener('click', () => {
-        const expanded = toggle.getAttribute('aria-expanded') === 'true';
-        toggle.setAttribute('aria-expanded', !expanded);
-        menu.classList.toggle('nav-links--open');
-        document.body.classList.toggle('nav-open');
-      });
-      menu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          toggle.setAttribute('aria-expanded', 'false');
-          menu.classList.remove('nav-links--open');
-          document.body.classList.remove('nav-open');
-        });
-      });
-    }
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); }
