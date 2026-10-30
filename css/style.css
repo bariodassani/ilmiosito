@@ -637,6 +637,118 @@ main:not(.home) {
   margin-top: 1.5rem;
 }
 
+/* Libro - Rassegna stampa e presentazioni */
+.book-extra {
+  margin-top: 4.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid #eee;
+}
+
+.book-extra--top {
+  margin: 0 0 3.5rem;
+  padding-top: 0;
+  border-top: none;
+}
+
+.book-extra__title {
+  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+  font-weight: 600;
+  margin-bottom: 1.75rem;
+}
+
+.book-extra__subtitle {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-accent);
+  margin: 2.5rem 0 0.75rem;
+}
+
+.quotes {
+  display: grid;
+  gap: 1.75rem;
+}
+
+.quote blockquote {
+  font-size: clamp(1.3rem, 2.6vw, 1.6rem);
+  font-style: italic;
+  line-height: 1.35;
+  padding-left: 1rem;
+  border-left: 3px solid var(--color-cta);
+  margin-bottom: 0.4rem;
+}
+
+.quote figcaption {
+  padding-left: 1rem;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+}
+
+.press-list,
+.talks-list {
+  list-style: none;
+}
+
+.press-list {
+  columns: 2;
+  column-gap: 2rem;
+}
+
+.press-list li {
+  break-inside: avoid;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+  font-size: 0.95rem;
+  color: var(--color-text-light);
+  line-height: 1.4;
+}
+
+.press-list__venue {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+a.press-list__venue {
+  color: var(--color-accent);
+}
+
+.talks-list li {
+  display: grid;
+  grid-template-columns: 11rem 1fr;
+  gap: 0.15rem 1.5rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.talks-list__date {
+  grid-row: span 2;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-light);
+  padding-top: 0.2rem;
+}
+
+.talks-list__name {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+
+span.talks-list__name {
+  color: var(--color-text);
+}
+
+.talks-list__place {
+  grid-column: 2;
+  color: var(--color-text-light);
+}
+
 /* Pubblicazioni */
 .publications-list {
   list-style: none;
@@ -996,6 +1108,22 @@ footer p:last-child {
 
   .book-info {
     text-align: center;
+  }
+
+  .press-list {
+    columns: 1;
+  }
+
+  .talks-list li {
+    grid-template-columns: 1fr;
+  }
+
+  .talks-list__date {
+    grid-row: auto;
+  }
+
+  .talks-list__place {
+    grid-column: 1;
   }
 
   .contact-list li:hover {
