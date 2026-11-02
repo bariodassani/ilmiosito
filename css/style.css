@@ -686,13 +686,6 @@ main:not(.home) {
   color: var(--color-text-light);
 }
 
-.book-extra__award {
-  margin-top: 1.75rem;
-  padding-left: 1rem;
-  font-family: var(--font-display);
-  font-size: 0.95rem;
-}
-
 .press-list,
 .talks-list {
   list-style: none;
